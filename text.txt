@@ -1,1 +1,104 @@
-test
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 ~
+$ cd
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 ~
+$ cd c
+bash: cd: c: No such file or directory
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 ~
+$ cd /c
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c
+$ ls
+'$Recycle.Bin'/             git/                    SQLServer2017Media/
+ AVScanner.ini              hiberfil.sys            swapfile.sys
+ aws/                       Intel/                  SWSetup/
+ Boot/                      jdk1.3.1_28/           'System Volume Information'/
+ bootmgr                    mongodb/                TMRescueDisk/
+ BOOTNXT                    pagefile.sys            Users/
+ Config.Msi/                PerfLogs/               wamp64/
+ devlist.txt               'Program Files'/         Windows/
+'Documents and Settings'@  'Program Files (x86)'/   Windows.old/
+ eSupport/                  ProgramData/           'Windows.old(1)'/
+ Finish.log                 Recovery/
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c
+$ cd git
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ ls
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ clear
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ got config --global user.name "rmit-s3598660-Banu-Tennakoon"
+bash: got: command not found
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ git config --global user.name "rmit-s3598660-Banu-Tennakoon"
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ git config --global user.email s3598660@student.rmit.edu.au
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ git clone https://github.com/rmit-s3598660-Banu-Tennakoon/db_assignment.git
+Cloning into 'db_assignment'...
+remote: Counting objects: 4, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ ls
+db_assignment/
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git
+$ cd db_assignment/
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ ls
+README.md
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ git add test.txt
+fatal: pathspec 'test.txt' did not match any files
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ git add text.txt
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   text.txt
+
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ git commit -m "testing" test.txt
+error: pathspec 'test.txt' did not match any file(s) known to git.
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ git commit -m "testing" text.txt
+[master b471d04] testing
+ 1 file changed, 1 insertion(+)
+ create mode 100644 text.txt
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 324 bytes | 324.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/rmit-s3598660-Banu-Tennakoon/db_assignment.git
+   77afdf6..b471d04  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Banu@DESKTOP-2BVTUJ9 MINGW64 /c/git/db_assignment (master)
+$
