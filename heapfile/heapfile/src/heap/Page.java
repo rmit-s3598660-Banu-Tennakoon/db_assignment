@@ -31,14 +31,17 @@ byte[] page;
 			return addnewpage;
 		} else {
 			//Copy new record on to the existing page
-			System.out.println(record.toString());
+			//System.out.println(record.toString());
 			byte[] temp = new byte[page.length + record.toByteArray().length];
 			System.arraycopy(page,0,temp,0,page.length);
 			System.arraycopy(record.toByteArray(),0,temp,page.length,record.toByteArray().length);
-			page = temp;
+			//System.out.println(temp.length);
+			//System.out.println(temp.toString());			
+			for (int i=0; i<temp.length; i++) System.out.println(temp[i]);
 			//update current size of file
 			currentsize = currentsize + record.size();
-			return !addnewpage;
+			addnewpage = false;
+			return addnewpage;
 		}	
 	}
 	
