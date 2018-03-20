@@ -12,7 +12,6 @@ public static int pagesize;
 		path = args[2];
 		pagesize = Integer.parseInt(args[1]);
 		
-		
 		ReadData readdata = new ReadData();
 		
 		try {

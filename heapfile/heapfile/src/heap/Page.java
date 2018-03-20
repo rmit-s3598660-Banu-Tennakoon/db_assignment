@@ -2,15 +2,9 @@ package heap;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
-import javax.print.DocFlavor.BYTE_ARRAY;
 
 public class Page {
 DataOutputStream os;
@@ -37,12 +31,13 @@ byte[] page;
 			return addnewpage;
 		} else {
 			//Copy new record on to the existing page
+			System.out.println(record.toString());
 			byte[] temp = new byte[page.length + record.toByteArray().length];
 			System.arraycopy(page,0,temp,0,page.length);
 			System.arraycopy(record.toByteArray(),0,temp,page.length,record.toByteArray().length);
 			page = temp;
 			//update current size of file
-			currentsize += record.size();
+			currentsize = currentsize + record.size();
 			return !addnewpage;
 		}	
 	}
@@ -58,6 +53,11 @@ byte[] page;
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	
+	public void deleteRecord() {
+		
 	}
 
 
