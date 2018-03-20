@@ -1,31 +1,35 @@
 package heap;
 
-import java.io.DataOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class MyFile {
 
-public int pagesize;
 public List<Page> pages = new LinkedList<>();
-	
+public int pagesize;
+ListIterator<Page> it;
+
 	public MyFile(int pagesize) {
-		pagesize = this.pagesize;
+		this.pagesize = pagesize;
+		pages.add(new Page(pagesize));
 	}
 	
-	public byte[] createPage(DataOutputStream os) {
+	public void createPage(ByteArrayOutputStream record) {
 		
-		if (inputdata)
+		it = pages.listIterator();
+		//The below if statement will return true if the last page is full. In that case we
+		//create a new page.
+		if(it.next().addRecord(record)) {
+			Page pg = new Page(pagesize);
+			pg.addRecord(record);
+			it.add(pg);
+		} else {
+			System.out.println("Error creating page");
+		}
 		
-			byte[] page = new byte[dbload.pagesize];
-		
-		List ArrayList 
-		
-		String string = "asdf";
-		byte[] result = new byte[100];
-		System.arraycopy(string.getBytes(), 0, page, 100 - string.length(), string.length());
-		
-		
+
 	}
 	
 	public void deletePage() {

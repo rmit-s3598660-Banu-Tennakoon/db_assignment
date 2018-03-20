@@ -25,7 +25,7 @@ public class ReadData {
 	
 	public String[] readFile() throws IOException {
 		
-		String[] col = null;
+		String[] tokens = null;
 		
 		//File file = getFilePath();
 		
@@ -38,8 +38,8 @@ public class ReadData {
 			br.readLine();
 			while((line = br.readLine()) != null) {
 				//System.out.println(line);
-				col = line.split("	", 9);
-				writeFile(col);
+				tokens = line.split("	", 9);
+				writeFile(tokens);
 			}
 			br.close();
 			
@@ -47,18 +47,31 @@ public class ReadData {
 			System.out.println("Error reading file");
 			e.printStackTrace();
 		}
-		return col;	
+		return tokens;	
 	}
 	
 	
-	public void writeFile(String[] cols) {
+	public void writeFile(String[] tokens) {
 		
 		
 		MyFile myfile = new MyFile(dbload.pagesize);
 
-		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		ByteArrayOutputStream record = new ByteArrayOutputStream();
+		
+		for (String token: tokens) {
+			//convert record string to a byte then add to ByteArrayOutputStream
+			record.write(token.getBytes());
+		}
+		
+		myfile.createPage(record);
 		
 		
+		bos.w
+		FileOutputStream fos = new FileOutputStream("output.dat");
+		DataOutputStream os = new DataOutputStream(fos);
+
+		
+
 		byte[] stream = new byte[9];
 		
 		//Need to parse integer
