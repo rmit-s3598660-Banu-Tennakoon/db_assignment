@@ -11,10 +11,10 @@ public class ReadData {
 
 MyFile myfile; 
 	
-	public String[] readFile() throws IOException {
+	public void readFile() throws IOException {
 		
 		myfile = new MyFile(dbload.pagesize);
-		String[] tokens = null;
+		//String[] tokens = null;
 		//File file = getFilePath();
 		File file = new File (dbload.path);
 		String line;
@@ -25,8 +25,9 @@ MyFile myfile;
 			br.readLine();
 			while((line = br.readLine()) != null) {
 				//System.out.println(line);
-				tokens = line.split("\\r?\\n");
-				writeFile(tokens);
+				//tokens = line.split("\\r?\\n");
+				//writeFile(tokens);
+				writeFile(line);
 			}
 			br.close();
 			
@@ -34,24 +35,22 @@ MyFile myfile;
 			System.out.println("Error reading file");
 			e.printStackTrace();
 		}
-		return tokens;	
 	}
 	
 	
-	public void writeFile(String[] tokens) {
+	public void writeFile(String line) {
 		
 		ByteArrayOutputStream record = new ByteArrayOutputStream();
 		
-		for (String token: tokens) {
-			//convert tokens to bytes then add to ByteArrayOutputStream
+
 			try {
-				record.write(token.getBytes());
+				record.write(line.getBytes());
 				myfile.createPage(record);
 			} catch (IOException e) {
 				System.out.println("Can't write tokens");
 				e.printStackTrace();
 			}
-		}
+	
 
 		
 		
